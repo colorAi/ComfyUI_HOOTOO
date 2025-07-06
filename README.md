@@ -1,3 +1,64 @@
+HOOTOO_ImageTransform - 3D图像变换工具
+
+HOOTOO_ImageTransform 是一个功能强大的3D图像变换工具节点，灵感来源于PT娃导。它能够对静态图像或默认生成的棋盘格进行复杂的动画变换，支持2D/3D变换、自定义背景和Mask输出。
+
+✨ 核心特性
+🎨 图像变换功能
+2D/3D变换：支持平移、缩放和3D旋转(X/Y/Z轴)
+
+透视效果：可调节焦距控制透视强度
+
+动画生成：将单一图像生成为指定帧数的平滑动画序列
+
+🖼️ 背景控制
+自定义背景：支持外部图像/动画作为背景
+
+内置选项：纯黑、纯白或棋盘格背景
+
+无输入模式：自动生成大尺寸棋盘格作为操作对象
+
+🎭 高级功能
+Alpha通道支持：完整保留透明度信息
+
+独立Mask输出：精确表示图像透明度，不含背景
+
+固定输出尺寸：确保动画序列连贯性
+
+🛠️ 接口说明
+输入参数
+参数名称	类型	说明
+frames	int	要生成的动画帧数
+output_width	int	输出图像宽度(无输入图像时生效)
+output_height	int	输出图像高度(无输入图像时生效)
+translate_x	float	X轴最终平移量
+translate_y	float	Y轴最终平移量
+scale_animate_start	float	起始帧缩放比例
+scale_animate_end	float	结束帧缩放比例
+rotate_x	float	X轴最终旋转角度(度)
+rotate_y	float	Y轴最终旋转角度(度)
+rotate_z	float	Z轴最终旋转角度(度)
+focal_length	float	3D透视变换焦距
+bg_color	enum	背景颜色("black", "white", "checker")
+output_padding	float	图像内容与画布边缘的内边距
+可选输入
+background_image (IMAGE): 动画背景图像序列
+
+输出
+IMAGE (IMAGE): 变换后的RGBA图像序列
+
+MASK (MASK): 纯Alpha通道序列
+
+📌 使用提示
+当不连接image输入时，节点会生成内部棋盘格
+
+output_padding参数仅控制布局，不影响图像缩放
+
+背景图像会自动缩放以适应输出尺寸
+
+Mask输出完全透明(0值)的背景区域，便于合成
+
+
+
 本节点和说明都由AI制作。灵感来源  PT 娃导
 
 节点名称：HOOTOO_ImageTransform
