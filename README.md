@@ -1,8 +1,11 @@
-HOOTOO_ImageTransform - 3D图像变换工具
+初衷：最近使用WanVideo2_1_multitalk，kj默认uni3c 是使用静止图像参考，导致视频几乎完全不动，参考视频又很难找到合适的，所以制作了这个将图像变成运镜视频的节点，弥补运镜问题。
 
-HOOTOO_ImageTransform 是一个功能强大的3D图像变换工具节点，灵感来源于PT娃导。它能够对静态图像或默认生成的棋盘格进行复杂的动画变换，支持2D/3D变换、自定义背景和Mask输出。
+HOOTOO_ImageTransform - 3D图像变换工具，灵感来源于PT娃导，娃导项目地址：https://github.com/ptmaster/Comfyui-PT-Keyframe-Camera
+
+HOOTOO_ImageTransform 是一个功能强大的3D图像变换工具节点，它能够对静态图像或默认生成的棋盘格进行复杂的动画变换，支持2D/3D变换、自定义背景和Mask输出。
 
 ✨ 核心特性
+
 🎨 图像变换功能
 2D/3D变换：支持平移、缩放和3D旋转(X/Y/Z轴)
 
@@ -25,23 +28,27 @@ Alpha通道支持：完整保留透明度信息
 固定输出尺寸：确保动画序列连贯性
 
 🛠️ 接口说明
-输入参数
-| 参数名称               | 类型    | 说明                                                                 |
-|------------------------|---------|----------------------------------------------------------------------|
-| `frames`               | int     | 要生成的动画帧数                                                    |
-| `output_width`         | int     | 输出图像宽度（无输入图像时生效）                                    |
-| `output_height`        | int     | 输出图像高度（无输入图像时生效）                                    |
-| `translate_x`          | float   | X轴最终平移量（第一帧为0，最后一帧为该值）                          |
-| `scale_animate_start`  | float   | 动画第一帧的缩放比例                                                |
-| `focal_length`         | float   | 3D透视变换的焦距（值越大透视效果越弱）                              |
-| `bg_color`             | enum    | 背景选项：`"black"`/`"white"`/`"checker"`（默认：`"black"`）         |
-|output_padding	float	   |         |图像内容与画布边缘的内边距                                        |
+| 参数分类       | 参数名               | 类型/范围                     | 默认值   | 说明                                                                 |
+|----------------|----------------------|-------------------------------|----------|----------------------------------------------------------------------|
+| **动画控制**   | `frames`             | INT [1, 9999]                | 10       | 动画总帧数（线性插值）                                               |
+|                | `output_width`       | INT [64,4096] (step=8)       | 512      | 无输入图像时的输出宽度                                               |
+|                | `output_height`      | INT [64,4096] (step=8)       | 512      | 无输入图像时的输出高度                                               |
+| **2D变换**     | `translate_x`        | INT [-5000,5000]             | 0        | X轴平移量（像素，末帧达到设定值）                                    |
+|                | `translate_y`        | INT [-5000,5000]             | 0        | Y轴平移量                                                            |
+|                | `scale_animate_start`| FLOAT [0.01,10.0]            | 1.0      | 起始帧缩放比例                                                       |
+|                | `scale_animate_end`  | FLOAT [0.01,10.0]            | 1.0      | 结束帧缩放比例                                                       |
+| **3D变换**     | `rotate_x`           | FLOAT [-179,179] (step=0.5)  | 0.0      | X轴旋转角度（俯仰角）                                                |
+|                | `rotate_y`           | FLOAT [-179,179] (step=0.5)  | 0.0      | Y轴旋转角度（偏航角）                                                |
+|                | `rotate_z`           | FLOAT [-360,360] (step=0.5)  | 0.0      | Z轴旋转角度（平面旋转）                                              |
+|                | `focal_length`       | FLOAT [10.0,5000.0]          | 1000.0   | 透视强度（值越小效果越强）                                           |
+| **背景控制**   | `bg_color`           | black/white/checker          | black    | 无背景输入时的填充方案                                               |
+|                | `output_padding`     | INT [0,500]                  | 0        | 图像内边距（像素）                                                   |
 
 可选输入
 background_image (IMAGE): 动画背景图像序列
 
 输出
-IMAGE (IMAGE): 变换后的RGBA图像序列
+IMAGE (IMAGE): 变换后的RGB图像序列
 
 MASK (MASK): 纯Alpha通道序列
 
@@ -58,6 +65,8 @@ Mask输出完全透明(0值)的背景区域，便于合成
 
 
 <img width="1589" alt="1" src="https://github.com/user-attachments/assets/3292ae57-779e-41b2-b03c-55c8127de0b0" />
+
+![image](https://github.com/user-attachments/assets/676cb950-e663-456e-94a4-35fbee6de919)
 
 https://github.com/user-attachments/assets/4b267a4e-91a0-452a-81f0-04e4d28dd417   
 
