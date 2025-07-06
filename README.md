@@ -1,6 +1,7 @@
 初衷：最近使用WanVideo2_1_multitalk，kj默认uni3c 是使用静止图像参考，导致视频几乎完全不动，参考视频又很难找到合适的，所以制作了这个将图像变成运镜视频的节点，弥补运镜问题。
 
-更新
+✨更新
+
 添加ImageTransformSegment节点，该节点可以分段制作区间运镜。通过设置每个节点的开始和结束帧，制作区间动画，最后将每个动画合并到一起，详情请看示例工作流。
 
 HOOTOO_ImageTransform - 3D图像变换工具，灵感来源于PT娃导，娃导项目地址：https://github.com/ptmaster/Comfyui-PT-Keyframe-Camera
