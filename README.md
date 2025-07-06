@@ -36,6 +36,7 @@ Alpha通道支持：完整保留透明度信息
 | `focal_length`         | float   | 3D透视变换的焦距（值越大透视效果越弱）                              |
 | `bg_color`             | enum    | 背景选项：`"black"`/`"white"`/`"checker"`（默认：`"black"`）         |
 |output_padding	float	   |         |图像内容与画布边缘的内边距                                        |
+
 可选输入
 background_image (IMAGE): 动画背景图像序列
 
