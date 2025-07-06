@@ -1,0 +1,734 @@
+{
+  "id": "63cbd08d-38c5-406b-9fdb-57ec854155e8",
+  "revision": 0,
+  "last_node_id": 9,
+  "last_link_id": 14,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        937.2074584960938,
+        -72.2606201171875
+      ],
+      "size": [
+        341.23583984375,
+        424.5613708496094
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            1
+          ]
+        },
+        {
+          "label": "遮罩",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.41",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "jimeng-2025-07-05-2459.jpeg",
+        "image"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "ImageResizeKJv2",
+      "pos": [
+        1360.0618896484375,
+        -72.200927734375
+      ],
+      "size": [
+        270,
+        286
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        },
+        {
+          "label": "mask",
+          "name": "mask",
+          "shape": 7,
+          "type": "MASK",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2,
+            4,
+            7
+          ]
+        },
+        {
+          "label": "width",
+          "name": "width",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "label": "height",
+          "name": "height",
+          "type": "INT",
+          "links": []
+        },
+        {
+          "label": "mask",
+          "name": "mask",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "f7eb33abc80a2aded1b46dff0dd14d07856a7d50",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ImageResizeKJv2"
+      },
+      "widgets_values": [
+        480,
+        832,
+        "lanczos",
+        "crop",
+        "0, 0, 0",
+        "center",
+        2,
+        "cpu"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "HOOTOO_ImageTransformSegment",
+      "pos": [
+        1685.5672607421875,
+        -57.169803619384766
+      ],
+      "size": [
+        385.775390625,
+        410
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "label": "background_image",
+          "name": "background_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "total_frames",
+          "name": "total_frames",
+          "type": "INT",
+          "widget": {
+            "name": "total_frames"
+          },
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE_SEQUENCE_SEGMENT",
+          "name": "IMAGE_SEQUENCE_SEGMENT",
+          "type": "IMAGE",
+          "links": [
+            10
+          ]
+        },
+        {
+          "label": "MASK_SEQUENCE_SEGMENT",
+          "name": "MASK_SEQUENCE_SEGMENT",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "label": "FINAL_TRANSFORM_STATE",
+          "name": "FINAL_TRANSFORM_STATE",
+          "type": "COMBO",
+          "links": [
+            5
+          ]
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "HOOTOO_ImageTransformSegment"
+      },
+      "widgets_values": [
+        "TRANSFORM_STATE",
+        500,
+        0,
+        50,
+        1,
+        383,
+        0,
+        1.2,
+        39.7,
+        0,
+        30,
+        1000,
+        "black",
+        0
+      ]
+    },
+    {
+      "id": 4,
+      "type": "HOOTOO_ImageTransformSegment",
+      "pos": [
+        2109.329345703125,
+        -63.6221809387207
+      ],
+      "size": [
+        385.775390625,
+        410
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 4
+        },
+        {
+          "label": "background_image",
+          "name": "background_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "initial_transform_state",
+          "name": "initial_transform_state",
+          "type": "COMBO",
+          "widget": {
+            "name": "initial_transform_state"
+          },
+          "link": 5
+        },
+        {
+          "label": "total_frames",
+          "name": "total_frames",
+          "type": "INT",
+          "widget": {
+            "name": "total_frames"
+          },
+          "link": 6
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE_SEQUENCE_SEGMENT",
+          "name": "IMAGE_SEQUENCE_SEGMENT",
+          "type": "IMAGE",
+          "links": [
+            11
+          ]
+        },
+        {
+          "label": "MASK_SEQUENCE_SEGMENT",
+          "name": "MASK_SEQUENCE_SEGMENT",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "label": "FINAL_TRANSFORM_STATE",
+          "name": "FINAL_TRANSFORM_STATE",
+          "type": "COMBO",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "HOOTOO_ImageTransformSegment"
+      },
+      "widgets_values": [
+        "TRANSFORM_STATE",
+        500,
+        51,
+        100,
+        1,
+        0,
+        0,
+        0.7500000000000001,
+        -10.600000000000001,
+        0,
+        -41.400000000000006,
+        1000,
+        "black",
+        0
+      ]
+    },
+    {
+      "id": 5,
+      "type": "HOOTOO_ImageTransformSegment",
+      "pos": [
+        2538.370849609375,
+        -72.10845947265625
+      ],
+      "size": [
+        385.775390625,
+        410
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "image",
+          "name": "image",
+          "type": "IMAGE",
+          "link": 7
+        },
+        {
+          "label": "background_image",
+          "name": "background_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "label": "initial_transform_state",
+          "name": "initial_transform_state",
+          "type": "COMBO",
+          "widget": {
+            "name": "initial_transform_state"
+          },
+          "link": 8
+        },
+        {
+          "label": "total_frames",
+          "name": "total_frames",
+          "type": "INT",
+          "widget": {
+            "name": "total_frames"
+          },
+          "link": 9
+        }
+      ],
+      "outputs": [
+        {
+          "label": "IMAGE_SEQUENCE_SEGMENT",
+          "name": "IMAGE_SEQUENCE_SEGMENT",
+          "type": "IMAGE",
+          "links": [
+            13
+          ]
+        },
+        {
+          "label": "MASK_SEQUENCE_SEGMENT",
+          "name": "MASK_SEQUENCE_SEGMENT",
+          "type": "MASK",
+          "links": null
+        },
+        {
+          "label": "FINAL_TRANSFORM_STATE",
+          "name": "FINAL_TRANSFORM_STATE",
+          "type": "COMBO",
+          "links": null
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "HOOTOO_ImageTransformSegment"
+      },
+      "widgets_values": [
+        "TRANSFORM_STATE",
+        500,
+        101,
+        150,
+        1,
+        362,
+        135,
+        1.0000000000000002,
+        0,
+        0,
+        52,
+        1000,
+        "black",
+        0
+      ]
+    },
+    {
+      "id": 6,
+      "type": "ImageBatch",
+      "pos": [
+        2512.854248046875,
+        -298.1136474609375
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "图像1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "label": "图像2",
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 11
+        }
+      ],
+      "outputs": [
+        {
+          "label": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ImageBatch"
+      }
+    },
+    {
+      "id": 7,
+      "type": "ImageBatch",
+      "pos": [
+        2955.46533203125,
+        -294.1641845703125
+      ],
+      "size": [
+        140,
+        46
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "图像1",
+          "name": "image1",
+          "type": "IMAGE",
+          "link": 12
+        },
+        {
+          "label": "图像2",
+          "name": "image2",
+          "type": "IMAGE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "label": "图像",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            14
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.43",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "ImageBatch"
+      }
+    },
+    {
+      "id": 8,
+      "type": "INTConstant",
+      "pos": [
+        1405.0987548828125,
+        -252.1179656982422
+      ],
+      "size": [
+        210,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "值",
+          "name": "value",
+          "type": "INT",
+          "links": [
+            3,
+            6,
+            9
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-kjnodes",
+        "ver": "ee0eb6696b03e55d57201c39872793b44b9381ed",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "INTConstant"
+      },
+      "widgets_values": [
+        150
+      ],
+      "color": "#1b4669",
+      "bgcolor": "#29699c"
+    },
+    {
+      "id": 9,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        3000.463623046875,
+        -66.02194213867188
+      ],
+      "size": [
+        210.02005004882812,
+        677.3681030273438
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "图像",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 14
+        },
+        {
+          "label": "音频",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": null
+        },
+        {
+          "label": "批次管理",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "label": "文件名",
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "0a75c7958fe320efcb052f1d9f8451fd20c730a8",
+        "widget_ue_connectable": {},
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "WanVideo2_1_multitalk",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "WanVideo2_1_multitalk_00051.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 25,
+            "workflow": "WanVideo2_1_multitalk_00051.png",
+            "fullpath": "E:\\ComfyUI_APP\\ComfyUI_2\\ComfyUI\\output\\WanVideo2_1_multitalk_00051.mp4"
+          }
+        }
+      }
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      0,
+      "IMAGE"
+    ],
+    [
+      2,
+      2,
+      0,
+      3,
+      0,
+      "IMAGE"
+    ],
+    [
+      3,
+      8,
+      0,
+      3,
+      2,
+      "INT"
+    ],
+    [
+      4,
+      2,
+      0,
+      4,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      3,
+      2,
+      4,
+      2,
+      "COMBO"
+    ],
+    [
+      6,
+      8,
+      0,
+      4,
+      3,
+      "INT"
+    ],
+    [
+      7,
+      2,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      8,
+      4,
+      2,
+      5,
+      2,
+      "COMBO"
+    ],
+    [
+      9,
+      8,
+      0,
+      5,
+      3,
+      "INT"
+    ],
+    [
+      10,
+      3,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      11,
+      4,
+      0,
+      6,
+      1,
+      "IMAGE"
+    ],
+    [
+      12,
+      6,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      5,
+      0,
+      7,
+      1,
+      "IMAGE"
+    ],
+    [
+      14,
+      7,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ue_links": [],
+    "ds": {
+      "scale": 0.6727499949326248,
+      "offset": [
+        -660.1913269624199,
+        602.8529915587947
+      ]
+    },
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": true,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
