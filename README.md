@@ -1,6 +1,6 @@
-HOOTOO_ImageTransform - 3D图像变换工具
+HOOTOO_ImageTransform - 3D图像变换工具，灵感来源于PT娃导
 
-HOOTOO_ImageTransform 是一个功能强大的3D图像变换工具节点，灵感来源于PT娃导。它能够对静态图像或默认生成的棋盘格进行复杂的动画变换，支持2D/3D变换、自定义背景和Mask输出。
+HOOTOO_ImageTransform 是一个功能强大的3D图像变换工具节点，它能够对静态图像或默认生成的棋盘格进行复杂的动画变换，支持2D/3D变换、自定义背景和Mask输出。
 
 ✨ 核心特性
 🎨 图像变换功能
