@@ -44,7 +44,9 @@ IMAGE (IMAGE): 经过 3D 变换并与背景合成后的图像序列。该序列�
 MASK (MASK): 经过 3D 变换后的纯 Alpha 通道序列。该 Mask 仅反映前景图像内容的透明度，背景区域在 Mask 上表现为完全透明（0 值），方便与其他 Mask 操作或合成节点配合使用。
 <img width="1589" alt="1" src="https://github.com/user-attachments/assets/3292ae57-779e-41b2-b03c-55c8127de0b0" />
 
-https://github.com/user-attachments/assets/4b267a4e-91a0-452a-81f0-04e4d28dd417   https://github.com/user-attachments/assets/53d08339-a055-40ff-8092-31488e2ee27f
+https://github.com/user-attachments/assets/4b267a4e-91a0-452a-81f0-04e4d28dd417   
+
+https://github.com/user-attachments/assets/53d08339-a055-40ff-8092-31488e2ee27f
 
 https://github.com/user-attachments/assets/30d7daa4-0793-473d-ab52-9b8dc4a6fc8d
 
