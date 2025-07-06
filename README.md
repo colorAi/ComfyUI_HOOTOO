@@ -1,4 +1,4 @@
-本节点和说明都由AI制作。
+本节点和说明都由AI制作。灵感来源  PT 娃导
 
 节点名称：HOOTOO_ImageTransform
 
