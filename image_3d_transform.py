@@ -123,6 +123,10 @@ class HOOTOO_ImageTransform:
                 external_background_pil=current_frame_bg_pil # 传递外部背景
             )
 
+            # Convert result_img_pil to RGB before converting to tensor
+            if result_img_pil.mode == 'RGBA':
+                result_img_pil = result_img_pil.convert('RGB')
+
             image_sequence.append(self.pil2tensor(result_img_pil))
             mask_sequence.append(self.pil2mask_tensor(result_mask_pil)) 
 
@@ -377,9 +381,9 @@ class HOOTOO_ImageTransform:
 
     @staticmethod
     def pil2tensor(image):
-        """PIL图像转Tensor，支持 RGBA"""
-        if image.mode != 'RGBA':
-            image = image.convert('RGBA')
+        """PIL图像转Tensor，确保输出为RGB"""
+        if image.mode == 'RGBA':
+            image = image.convert('RGB') # Convert to RGB if it's RGBA
         
         return torch.from_numpy(np.array(image).astype(np.float32) / 255.0).unsqueeze(0)
 
