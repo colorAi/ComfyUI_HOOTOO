@@ -45,7 +45,7 @@ Alpha通道支持：完整保留透明度信息
 background_image (IMAGE): 动画背景图像序列
 
 输出
-IMAGE (IMAGE): 变换后的RGBA图像序列
+IMAGE (IMAGE): 变换后的RGB图像序列
 
 MASK (MASK): 纯Alpha通道序列
 
