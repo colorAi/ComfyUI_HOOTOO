@@ -66,6 +66,8 @@ Mask输出完全透明(0值)的背景区域，便于合成
 
 <img width="1589" alt="1" src="https://github.com/user-attachments/assets/3292ae57-779e-41b2-b03c-55c8127de0b0" />
 
+![image](https://github.com/user-attachments/assets/676cb950-e663-456e-94a4-35fbee6de919)
+
 https://github.com/user-attachments/assets/4b267a4e-91a0-452a-81f0-04e4d28dd417   
 
 https://github.com/user-attachments/assets/53d08339-a055-40ff-8092-31488e2ee27f
